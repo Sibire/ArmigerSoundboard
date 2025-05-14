@@ -1,15 +1,19 @@
 package com.example.armigerssoundboard
+
 import android.media.MediaPlayer
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.armigerssoundboard.ui.theme.ArmigersSoundboardTheme
+import androidx.core.graphics.toColorInt
+import androidx.compose.ui.graphics.Color
 
 class MainActivity : ComponentActivity() {
     private var mediaPlayer: MediaPlayer? = null
@@ -50,9 +54,10 @@ fun Soundboard(onPlay: () -> Unit, onStop: () -> Unit) {
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+                .align(Alignment.Center)
+                .padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(onClick = onPlay) {
                 Text("Play NFL Theme")
@@ -65,8 +70,22 @@ fun Soundboard(onPlay: () -> Unit, onStop: () -> Unit) {
             text = "I know my girlfriend is a sociopath because she asked me to do Android development.",
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(16.dp),
-            style = MaterialTheme.typography.bodyLarge
+                .padding(bottom = 16.dp, start = 16.dp, end = 16.dp),
+            style = MaterialTheme.typography.bodyLarge,
+            color = Color("#a600ff".toColorInt())
         )
+    }
+}
+
+@Preview(
+    name = "Soundboard Preview",
+    showBackground = true,
+    widthDp = 360,
+    heightDp = 640
+)
+@Composable
+fun SoundboardPreview() {
+    ArmigersSoundboardTheme {
+        Soundboard(onPlay = {}, onStop = {})
     }
 }
