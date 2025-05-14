@@ -70,7 +70,7 @@ fun Soundboard(onPlay: () -> Unit, onStop: () -> Unit) {
             text = "I know my girlfriend is a sociopath because she asked me to do Android development.",
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 16.dp, start = 16.dp, end = 16.dp),
+                .padding(bottom = 72.dp, start = 16.dp, end = 16.dp),
             style = MaterialTheme.typography.bodyLarge,
             color = Color("#a600ff".toColorInt())
         )
